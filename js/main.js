@@ -23,4 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
             this.reset();
         });
     }
+
+    // Add logout functionality
+    const logoutLinks = document.querySelectorAll('.logout-link');
+    if (logoutLinks) {
+        logoutLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('snm_authenticated');
+                window.location.reload();
+            });
+        });
+    }
 }); 
