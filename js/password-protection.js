@@ -34,9 +34,21 @@
         // Create overlay elements
         const overlay = document.createElement('div');
         overlay.className = 'password-overlay';
+        // Force full-screen positioning
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.display = 'flex';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
         
         const container = document.createElement('div');
         container.className = 'password-container';
+        // Ensure container is properly centered
+        container.style.position = 'relative';
+        container.style.margin = 'auto';
         
         const logo = document.createElement('h2');
         logo.textContent = 'Seattle North Magnolia';

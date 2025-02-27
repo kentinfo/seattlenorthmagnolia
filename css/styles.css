@@ -1033,6 +1033,8 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    margin: 0;
+    padding: 0;
 }
 
 .password-container {
@@ -1043,6 +1045,10 @@ footer {
     max-width: 400px;
     box-shadow: var(--shadow);
     text-align: center;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
 }
 
 .password-container h2 {
