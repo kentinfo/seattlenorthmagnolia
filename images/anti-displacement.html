@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 600px;
+            background-color: #f7fafc;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .diagram {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            margin: 0 auto;
+        }
+        .house {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background-color: #f6ad55;
+            border: 1px solid #dd6b20;
+            border-radius: 5px;
+        }
+        .roof {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 30px solid #dd6b20;
+            top: -30px;
+            left: -5px;
+        }
+        .shield {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 10px solid #2c5282;
+            border-radius: 50%;
+            top: 75px;
+            left: 150px;
+            opacity: 0.7;
+        }
+        .house-1 {
+            top: 100px;
+            left: 80px;
+        }
+        .house-2 {
+            top: 100px;
+            left: 240px;
+        }
+        h2 {
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Anti-Displacement Measures</h2>
+        <div class="diagram">
+            <div class="house house-1">
+                <div class="roof"></div>
+            </div>
+            <div class="house house-2">
+                <div class="roof"></div>
+            </div>
+            <div class="shield"></div>
+        </div>
+        <p>Protecting existing residents and affordable housing</p>
+    </div>
+</body>
+</html> 

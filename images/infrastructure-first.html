@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 600px;
+            background-color: #f7fafc;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .diagram {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            margin: 0 auto;
+        }
+        .road {
+            position: absolute;
+            height: 20px;
+            background-color: #718096;
+            border-radius: 10px;
+        }
+        .road-1 {
+            width: 300px;
+            top: 100px;
+            left: 50px;
+        }
+        .road-2 {
+            width: 20px;
+            height: 200px;
+            top: 10px;
+            left: 190px;
+        }
+        .building {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: #4299e1;
+            border: 1px solid #2b6cb0;
+        }
+        .building-1 {
+            top: 30px;
+            left: 100px;
+        }
+        .building-2 {
+            top: 30px;
+            left: 260px;
+        }
+        .building-3 {
+            top: 130px;
+            left: 100px;
+        }
+        .building-4 {
+            top: 130px;
+            left: 260px;
+        }
+        h2 {
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Infrastructure-First Approach</h2>
+        <div class="diagram">
+            <div class="road road-1"></div>
+            <div class="road road-2"></div>
+            <div class="building building-1"></div>
+            <div class="building building-2"></div>
+            <div class="building building-3"></div>
+            <div class="building building-4"></div>
+        </div>
+        <p>Build infrastructure before or alongside development</p>
+    </div>
+</body>
+</html> 
