@@ -1,9 +1,10 @@
 // Basic password protection script
 (function() {
     // Configuration
-    const PASSWORD = "magnolia2023"; // Change this to your desired password
+    const PASSWORD = "magnolia2025"; // Change this to your desired password
     const STORAGE_KEY = "snm_authenticated";
     const EXPIRY_DAYS = 7; // How long the authentication lasts
+    const redirectUrl = "//www.seattlenorthmagnolia.com/";
     
     // Check if user is already authenticated
     function isAuthenticated() {
