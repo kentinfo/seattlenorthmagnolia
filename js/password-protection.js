@@ -30,8 +30,40 @@
         }));
     }
     
+    // Apply blur effect to page content
+    function applyBlurEffect() {
+        // Create a style element
+        const style = document.createElement('style');
+        style.id = 'blur-style';
+        style.textContent = `
+            body > *:not(.password-overlay) {
+                filter: blur(8px);
+                user-select: none;
+                pointer-events: none;
+                transition: filter 0.3s ease;
+            }
+            
+            .password-overlay {
+                backdrop-filter: none !important;
+                background-color: rgba(0, 0, 0, 0.5) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Remove blur effect
+    function removeBlurEffect() {
+        const blurStyle = document.getElementById('blur-style');
+        if (blurStyle) {
+            blurStyle.remove();
+        }
+    }
+    
     // Create and show login overlay
     function showLoginOverlay() {
+        // Apply blur effect first
+        applyBlurEffect();
+        
         // Create overlay elements
         const overlay = document.createElement('div');
         overlay.className = 'password-overlay';
@@ -44,12 +76,15 @@
         overlay.style.display = 'flex';
         overlay.style.justifyContent = 'center';
         overlay.style.alignItems = 'center';
+        overlay.style.zIndex = '10000';
         
         const container = document.createElement('div');
         container.className = 'password-container';
         // Ensure container is properly centered
         container.style.position = 'relative';
         container.style.margin = 'auto';
+        container.style.zIndex = '10001';
+        container.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.5)';
         
         const logo = document.createElement('h2');
         logo.textContent = 'Seattle North Magnolia';
@@ -109,10 +144,16 @@
                 setAuthenticated();
                 document.body.removeChild(overlay);
                 document.body.style.overflow = '';
+                removeBlurEffect();
             } else {
                 errorMsg.style.display = 'block';
                 input.value = '';
                 input.focus();
+                // Add shake animation to the container for wrong password
+                container.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    container.style.animation = '';
+                }, 500);
             }
         });
         
@@ -123,21 +164,33 @@
     // Main function
     function init() {
         if (!isAuthenticated()) {
-            // Hide content briefly to prevent flash
-            document.body.style.opacity = '0';
+            // Let the content be visible but blurred
+            document.body.style.opacity = '1';
             
             // Wait for DOM to be fully loaded
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     showLoginOverlay();
-                    document.body.style.opacity = '1';
                 });
             } else {
                 showLoginOverlay();
-                document.body.style.opacity = '1';
             }
+        } else {
+            // Make sure blur is removed for authenticated users
+            removeBlurEffect();
         }
     }
+    
+    // Add shake animation for wrong password
+    const shakeStyle = document.createElement('style');
+    shakeStyle.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+    `;
+    document.head.appendChild(shakeStyle);
     
     // Run the protection
     init();
