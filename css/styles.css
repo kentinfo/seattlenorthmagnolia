@@ -153,21 +153,30 @@ header .container {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 50px;
+    flex-wrap: nowrap;
 }
 
-.logo a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
+.logo {
+    flex: 0 0 auto;
+}
+
+nav {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-links {
     display: flex;
+    flex-wrap: nowrap;
+    gap: 2.5rem;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .nav-links li {
-    margin-left: 1.5rem;
+    margin-left: 0;
+    white-space: nowrap;
 }
 
 .nav-links a {
@@ -202,9 +211,13 @@ header .container {
 
 /* Page Header Spacing */
 .page-header {
-    margin-bottom: 4rem !important;
+    margin-bottom: 1.5rem !important;
     position: relative;
     z-index: 1;
+}
+
+.page-header .hero-container {
+    margin-bottom: 0;
 }
 
 /* Members Section Specific Spacing */
@@ -395,4 +408,9 @@ body main section.page-header + section.members-section {
     .hamburger {
         display: flex;
     }
+}
+
+/* Increase space between recommendation cards */
+.recommendation-card {
+    margin-bottom: 3rem;
 } 
